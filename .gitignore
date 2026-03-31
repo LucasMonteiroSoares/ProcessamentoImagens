@@ -1,0 +1,19 @@
+# Binários e objetos de compilação
+src/*.o
+programa
+programa.exe
+
+# Saída do programa
+output_image.png
+
+# Arquivos de editor/IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
