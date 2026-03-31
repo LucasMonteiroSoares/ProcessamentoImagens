@@ -1,5 +1,4 @@
 /*
- * Autores:
  *   Fernando Cavaleiro Paiva     - 10416680
  *   Lucas Monteiro Soares        - 10417881
  *   Leonardo Magalhães           - 10417121
@@ -17,13 +16,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+/* ────────────────────────────────────────────────────────────────────────────────────────
+ * Carrega imagem via SDL_image e normaliza para RGBA8888 para facilitar o acesso a pixels.
+ * Retorna NULL em caso de erro. 
+ * ─────────────────────────────────────────────────────────────────────────────────────── */
 
-/* ─────────────────────────────────────────────────────────────
- * load_image
- *   Carrega um arquivo de imagem usando SDL_image.
- *   Converte para RGBA8888 para facilitar o acesso a pixels.
- *   Retorna NULL em caso de erro.
- * ───────────────────────────────────────────────────────────── */
 SDL_Surface *load_image(const char *path)
 {
     if (!path || path[0] == '\0') {
@@ -75,11 +72,11 @@ bool is_grayscale(SDL_Surface *surf)
     return true;
 }
 
-/* ─────────────────────────────────────────────────────────────
+/* ────────────────────────────────────────────────────────
  * convert_to_grayscale
  *   Aplica  Y = 0.2125*R + 0.7154*G + 0.0721*B
  *   Retorna nova superfície; a original não é modificada.
- * ───────────────────────────────────────────────────────────── */
+ * ──────────────────────────────────────────────────────── */
 SDL_Surface *convert_to_grayscale(SDL_Surface *surf)
 {
     if (!surf) return NULL;
@@ -110,12 +107,12 @@ SDL_Surface *convert_to_grayscale(SDL_Surface *surf)
     return gray;
 }
 
-/* ─────────────────────────────────────────────────────────────
+/* ───────────────────────────────────────────
  * equalize_histogram
  *   Equalização clássica via CDF normalizada.
  *   Entrada: superfície em escala de cinza.
  *   Retorna nova superfície equalizada.
- * ───────────────────────────────────────────────────────────── */
+ * ───────────────────────────────────────────*/
 SDL_Surface *equalize_histogram(SDL_Surface *gray_surf)
 {
     if (!gray_surf) return NULL;
@@ -175,11 +172,11 @@ SDL_Surface *equalize_histogram(SDL_Surface *gray_surf)
     return eq;
 }
 
-/* ─────────────────────────────────────────────────────────────
+/* ──────────────────────────────
  * save_image
  *   Salva a superfície como PNG.
  *   Sobrescreve se já existir.
- * ───────────────────────────────────────────────────────────── */
+ * ────────────────────────────── */
 void save_image(SDL_Surface *surf, const char *path)
 {
     if (!surf || !path) return;
