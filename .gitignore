@@ -2,6 +2,10 @@
 src/*.o
 programa
 programa.exe
+*.exe
+
+# Pastas de build do CLion
+cmake-build-*/
 
 # Saída do programa
 output_image.png
